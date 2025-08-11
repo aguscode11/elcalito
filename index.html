@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Estamos preparando algo delicioso | Lácteos</title>
+    <title>El Calito</title>
     <meta name="description" content="Sitio oficial de lácteos y quesos artesanales. Próximamente online." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,7 +60,21 @@
         padding-bottom:14px; background: transparent; display:grid; place-items:center; color:#3b2a1f; font-weight:800; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px;
     }
 
-    @media (min-width:900px){ .glass{padding:40px 34px} .tile{min-width:120px} .tile__num{font-size:2.4rem} }
+    @media (min-width:900px){ .glass{padding:40px 34px} .tile{min-width:120px} .tile__num{font-size:2.4rem}}
+
+    @media (max-width: 500px) {
+    .countdown {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        max-width: 300px;
+        margin: 0 auto 26px;
+    }
+}
+
+    @media (max-width: 328px) {
+        .glass{margin-bottom: 20px; margin-top: 20px;}
+    }
     </style>
 </head>
 <body>
@@ -78,7 +92,7 @@
 
         <div class="badge" aria-live="polite">Sitio en construcción</div>
 
-        <h1>Estamos preparando <span style="color:#f5d27a">quesos</span> y una web a la altura</h1>
+        <h1>Estamos preparando <span style="color:#f5d27a">quesos</span> y una web a la altura...</h1>
         <p class="lead">Muy pronto vas a poder conocer nuestro catálogo de <strong>lácteos y quesos artesanales</strong>, historias de origen y puntos de venta. ¡Gracias por la paciencia!</p>
 
         <!-- Contador regresivo -->
