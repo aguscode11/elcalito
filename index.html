@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Estamos preparando algo delicioso | Lácteos</title>
+    <meta name="description" content="Sitio oficial de lácteos y quesos artesanales. Próximamente online." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+    <style>
+    :root{
+        --bg-dark:#0a0a0a;--cream:#fff8e6;--gold:#c89a2b;--choco:#4e342e;--accent:#bf360c;--glass:rgba(255,255,255,.12)
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+        margin:0; color:#fff; background:var(--bg-dark);
+        font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif
+    }
+    .hero{
+        position:relative; min-height:100dvh; display:grid; place-items:center; text-align:center; overflow:hidden
+    }
+    .hero__bg{
+        position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1546549039-49e2afe6c58e?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat; filter:contrast(1.05) saturate(1.05)
+    }
+    .hero__overlay{
+        position:absolute; inset:0; background:radial-gradient(1200px 1200px at 50% 30%, rgba(0,0,0,.15), rgba(0,0,0,.6)), linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.7))
+    }
+    .glass{
+        position:relative; z-index:2; width:min(960px,92%); margin-inline:auto; padding:28px 22px; border-radius:24px; backdrop-filter:blur(10px); background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.18); box-shadow:0 20px 60px rgba(0,0,0,.35)
+    }
+    header{display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap}
+    .badge{display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); font-weight:600; letter-spacing:.2px}
+    .brand{display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap}
+    .brand__pill{padding:6px 14px; border-radius:999px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); font-weight:700}
+    h1{font-family:"Playfair Display",serif; font-size:clamp(2rem,4vw+1rem,4rem); line-height:1.05; margin:16px 0; letter-spacing:.2px}
+    .lead{font-size:clamp(1rem,1vw+0.8rem,1.25rem); color:#f5efe7; max-width:60ch; margin:0 auto 22px}
+
+    /* Countdown */
+    .countdown{display:flex; justify-content:center; gap:14px; margin:22px auto 26px; flex-wrap:wrap}
+    .tile{min-width:90px; padding:14px 10px; border-radius:16px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2)}
+    .tile__num{font-variant-numeric:tabular-nums; font-weight:800; font-size:2rem}
+    .tile__lbl{font-size:.8rem; opacity:.9; letter-spacing:.4px}
+
+    /* CTA */
+    .cta{display:flex; flex-wrap:wrap; gap:12px; justify-content:center}
+    .btn{appearance:none; border:none; cursor:pointer; padding:14px 18px; border-radius:14px; font-weight:700}
+    .btn--primary{background:linear-gradient(90deg, #f8e2a6, #f3c96b); color:#3b2a1f}
+    .btn--outline{background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35)}
+    .note{opacity:.9; font-size:.9rem; margin-top:8px}
+
+    /* Footer */
+    footer{position:relative; z-index:2; padding:16px 18px 26px; text-align:center; color:#eee}
+    .links{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:8px}
+    .links a{color:#fff; opacity:.9; text-decoration:none}
+
+    /* Logo placeholder */
+    .logo{
+        width:58px; height:58px; border-radius:14px; background:#fff; display:grid; place-items:center; color:#3b2a1f; font-weight:800
+    }
+
+    @media (min-width:900px){ .glass{padding:40px 34px} .tile{min-width:120px} .tile__num{font-size:2.4rem} }
+    </style>
+</head>
+<body>
+    <section class="hero" role="banner" aria-label="Página en construcción">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="glass">
+        <header>
+        <div class="logo" aria-label="Logo">Q</div>
+        <div class="brand" aria-label="Marcas">
+            <span class="brand__pill" title="Marca 1">Torretta</span>
+            <span class="brand__pill" title="Marca 2">El Calito</span>
+        </div>
+        </header>
+
+        <div class="badge" aria-live="polite">Sitio en construcción</div>
+
+        <h1>Estamos preparando <span style="color:#f5d27a">quesos</span> y una web a la altura</h1>
+        <p class="lead">Muy pronto vas a poder conocer nuestro catálogo de <strong>lácteos y quesos artesanales</strong>, historias de origen y puntos de venta. ¡Gracias por la paciencia!</p>
+
+        <!-- Contador regresivo -->
+        <div class="countdown" id="countdown" aria-label="Cuenta regresiva al lanzamiento">
+        <div class="tile"><div class="tile__num" id="dd">00</div><div class="tile__lbl">DÍAS</div></div>
+        <div class="tile"><div class="tile__num" id="hh">00</div><div class="tile__lbl">HORAS</div></div>
+        <div class="tile"><div class="tile__num" id="mm">00</div><div class="tile__lbl">MIN</div></div>
+        <div class="tile"><div class="tile__num" id="ss">00</div><div class="tile__lbl">SEG</div></div>
+        </div>
+
+        <!-- Llamadas a la acción -->
+        <div class="cta">
+        <a class="btn btn--primary" href="mailto:info@lacteos.com?subject=Quiero%20su%20cat%C3%A1logo" rel="noopener">Pedí el catálogo por mail</a>
+        <a class="btn btn--outline" href="http://wa.link/r9saon" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+        </div>
+        <div class="note">También podés seguirnos en redes para enterarte del lanzamiento.</div>
+    </div>
+    </section>
+
+    <footer>
+    © <span id="year"></span> Lácteos Torretta & El Calito · Todos los derechos reservados
+    <div class="links">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="mailto:info@lacteos.com" aria-label="Email">Email</a>
+    </div>
+    </footer>
+
+    <script>
+    // Ajustá el fondo: poné la URL de tu foto de quesos
+    // document.querySelector('.hero__bg').style.backgroundImage = "url('tus-quesos.jpg')";
+
+    // Contador: por defecto, 30 días desde hoy. Podés fijar una fecha manual abajo.
+    const now = new Date();
+    const target = new Date('2025-09-01T00:00:00-03:00'); // +30 días
+    // O manual: const target = new Date('2025-09-01T00:00:00-03:00');
+
+    const dd = document.getElementById('dd');
+    const hh = document.getElementById('hh');
+    const mm = document.getElementById('mm');
+    const ss = document.getElementById('ss');
+
+    function updateCountdown(){
+        const t = target - new Date();
+        if (t <= 0){
+        document.getElementById('countdown').style.display = 'none';
+        return;
+        }
+        const days = Math.floor(t/86400000);
+        const hours = Math.floor((t%86400000)/3600000);
+        const mins = Math.floor((t%3600000)/60000);
+        const secs = Math.floor((t%60000)/1000);
+        dd.textContent = String(days).padStart(2,'0');
+        hh.textContent = String(hours).padStart(2,'0');
+        mm.textContent = String(mins).padStart(2,'0');
+        ss.textContent = String(secs).padStart(2,'0');
+    }
+    setInterval(updateCountdown, 1000); updateCountdown();
+
+    // Año dinámico en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
